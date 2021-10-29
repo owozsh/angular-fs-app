@@ -1,0 +1,17 @@
+:host {
+  width: 60%;
+}
+
+mat-expansion-panel {
+  border-radius: 7px !important;
+}
+
+mat-expansion-panel {
+  display: block;
+  margin-bottom: 20px;
+  border-radius: 10px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
