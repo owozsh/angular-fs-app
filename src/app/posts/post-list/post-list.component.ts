@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-post-list',
@@ -11,4 +12,8 @@ export class PostListComponent {
     { title: 'Second Post', content: "This is the second post's content" },
     { title: 'Third Post', content: "This is the third post's content" },
   ];
+
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.posts, event.previousIndex, event.currentIndex);
+  }
 }
