@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 
+import { Post } from '../post.model';
+
 @Component({
   selector: 'app-post-create',
   templateUrl: './post-create.component.html',
@@ -10,21 +12,21 @@ export class PostCreateComponent {
   enteredContent: string;
 
   @Output()
-  postCreated = new EventEmitter();
+  postCreated = new EventEmitter<Post>();
 
   onAddPost() {
-    const post = this.createPost(this.enteredTitle, this.enteredContent)
+    const post: Post = this.createPost(this.enteredTitle, this.enteredContent);
     this.clearInputs();
     this.postCreated.emit(post);
   }
 
-  createPost(title: string, content: string) {
+  createPost(title: string, content: string): Post {
     return {
       title: title,
-      content: content
-    }
+      content: content,
+    };
   }
-  
+
   clearInputs() {
     this.enteredTitle = '';
     this.enteredContent = '';
