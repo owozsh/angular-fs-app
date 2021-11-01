@@ -10,7 +10,7 @@ import { Post } from '../post.model';
 })
 export class PostListComponent {
   @Input()
-  posts: Post[];
+  posts: Post[] = [];
 
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.posts, event.previousIndex, event.currentIndex);
