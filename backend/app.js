@@ -5,11 +5,13 @@ const mongoose = require("mongoose");
 
 const Post = require("./models/post");
 
+const mongodbKey = require("./key");
+
 const app = express();
 
 mongoose
   .connect(
-    `mongodb+srv://app-user:${key}@app.jl3te.mongodb.net/node-angular?retryWrites=true&w=majority`
+    `mongodb+srv://app-user:${mongodbKey}@app.jl3te.mongodb.net/node-angular?retryWrites=true&w=majority`
   )
   .then(() => {
     console.log("Connected to database!");
