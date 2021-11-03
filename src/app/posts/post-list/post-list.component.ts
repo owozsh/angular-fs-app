@@ -17,6 +17,10 @@ export class PostListComponent implements OnInit {
 
   constructor(public postsService: PostsService) {}
 
+  onDelete(postId: string) {
+    this.postsService.deletePost(postId);
+  }
+
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.posts, event.previousIndex, event.currentIndex);
   }
