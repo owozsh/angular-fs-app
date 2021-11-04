@@ -6,3 +6,11 @@ mat-form-field,
 textarea {
   width: 100%;
 }
+
+mat-card-actions {
+  margin: 0;
+}
+
+input[type="file"] {
+  visibility: hidden;
+}
