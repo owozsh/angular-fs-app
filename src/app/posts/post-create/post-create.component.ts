@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { Post } from './../post.model';
@@ -13,6 +13,8 @@ import { PostsService } from './../posts.service';
 export class PostCreateComponent implements OnInit {
   post: Post;
   isLoading = false;
+  form: FormGroup;
+
   private mode: string = 'create';
   private postId: string;
 
@@ -22,6 +24,14 @@ export class PostCreateComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.form = new FormGroup({
+      title: new FormControl(null, {
+        validators: [Validators.required],
+      }),
+      content: new FormControl(null, {
+        validators: [Validators.required],
+      }),
+    });
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
       if (paramMap.has('postId')) {
         this.mode = 'edit';
